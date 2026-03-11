@@ -17,13 +17,13 @@ export function SolutionCreatePage() {
   const createSolution = useCreateSolution()
 
   if (isLoadingUser || isLoadingCategories || !currentUser || !categories) {
-    return <p className="text-slate-600">Loading form...</p>
+    return <p className="text-slate-600 dark:text-slate-300">Loading form...</p>
   }
 
   return (
     <section className="space-y-4">
-      <h1 className="text-2xl font-bold tracking-tight text-slate-900">Create Solution</h1>
-      <div className="rounded-lg border border-slate-200 bg-white p-4 sm:p-6">
+      <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Create Solution</h1>
+      <div className="rounded-lg border border-slate-200 bg-white p-4 sm:p-6 dark:border-slate-700 dark:bg-slate-800">
         <SolutionForm
           categories={categories}
           submitLabel="Create Solution"

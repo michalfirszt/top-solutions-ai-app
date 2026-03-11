@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useCategories, useCurrentUser, useSolutions } from '../hooks/useTopSolutionsData'
-import { formatDateTime } from '../lib/date'
 import { getStoredEmail } from '../lib/auth'
+import { formatDateTime } from '../lib/date'
 import type { Category, Solution } from '../types'
 
 type ViewMode = 'list' | 'grouped'
@@ -42,12 +42,12 @@ export function SolutionsListPage() {
     visibleOpenCategoryIds.length > 0 ? visibleOpenCategoryIds : firstVisibleId ? [firstVisibleId] : []
 
   if (isLoadingSolutions || isLoadingCategories) {
-    return <p className="text-slate-600">Loading solutions...</p>
+    return <p className="text-slate-600 dark:text-slate-300">Loading solutions...</p>
   }
 
   if (solutionsError || categoriesError || !solutions || !categories) {
     return (
-      <div className="rounded-md border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+      <div className="rounded-md border border-red-200 bg-red-50 p-4 text-sm text-red-700 dark:border-red-800 dark:bg-red-950 dark:text-red-200">
         Could not load data. Please refresh the page.
       </div>
     )
@@ -66,24 +66,26 @@ export function SolutionsListPage() {
   return (
     <section className="space-y-4">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold tracking-tight text-slate-900">All Solutions</h1>
+        <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">All Solutions</h1>
         <Link
           to="/solutions/new"
-          className="rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
+          className="rounded-md bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-slate-200"
         >
           New Solution
         </Link>
       </div>
 
-      <div className="space-y-3 rounded-lg border border-slate-200 bg-white p-4">
+      <div className="space-y-3 rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <p className="text-sm font-semibold text-slate-800">Category Filters</p>
+          <p className="text-sm font-semibold text-slate-800 dark:text-slate-100">Category Filters</p>
           <div className="flex items-center gap-2">
             <button
               type="button"
               onClick={() => setViewMode('list')}
               className={`rounded-md px-3 py-1.5 text-sm font-medium ${
-                viewMode === 'list' ? 'bg-slate-900 text-white' : 'border border-slate-300 text-slate-700'
+                viewMode === 'list'
+                  ? 'bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900'
+                  : 'border border-slate-300 text-slate-700 dark:border-slate-600 dark:text-slate-200'
               }`}
             >
               List View
@@ -93,8 +95,8 @@ export function SolutionsListPage() {
               onClick={() => setViewMode('grouped')}
               className={`rounded-md px-3 py-1.5 text-sm font-medium ${
                 viewMode === 'grouped'
-                  ? 'bg-slate-900 text-white'
-                  : 'border border-slate-300 text-slate-700'
+                  ? 'bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900'
+                  : 'border border-slate-300 text-slate-700 dark:border-slate-600 dark:text-slate-200'
               }`}
             >
               Grouped View
@@ -112,8 +114,8 @@ export function SolutionsListPage() {
                 onClick={() => toggleCategory(category.id)}
                 className={`rounded-full border px-3 py-1 text-sm ${
                   isSelected
-                    ? 'border-slate-900 bg-slate-900 text-white'
-                    : 'border-slate-300 bg-white text-slate-700'
+                    ? 'border-slate-900 bg-slate-900 text-white dark:border-slate-100 dark:bg-slate-100 dark:text-slate-900'
+                    : 'border-slate-300 bg-white text-slate-700 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-200'
                 }`}
               >
                 {category.name}
@@ -123,7 +125,7 @@ export function SolutionsListPage() {
           <button
             type="button"
             onClick={() => setSelectedCategoryIds([])}
-            className="rounded-full border border-slate-300 bg-white px-3 py-1 text-sm text-slate-700"
+            className="rounded-full border border-slate-300 bg-white px-3 py-1 text-sm text-slate-700 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-200"
           >
             Clear
           </button>
@@ -131,11 +133,11 @@ export function SolutionsListPage() {
       </div>
 
       {solutions.length === 0 ? (
-        <div className="rounded-md border border-slate-200 bg-white p-6 text-slate-600">
+        <div className="rounded-md border border-slate-200 bg-white p-6 text-slate-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
           No solutions yet. Create the first one.
         </div>
       ) : filteredSolutions.length === 0 ? (
-        <div className="rounded-md border border-slate-200 bg-white p-6 text-slate-600">
+        <div className="rounded-md border border-slate-200 bg-white p-6 text-slate-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
           No solutions match selected filters.
         </div>
       ) : viewMode === 'list' ? (
@@ -155,7 +157,7 @@ export function SolutionsListPage() {
             const isOpen = effectiveOpenCategoryIds.includes(section.category.id)
 
             return (
-              <section key={section.category.id} className="rounded-lg border border-slate-200 bg-white">
+              <section key={section.category.id} className="rounded-lg border border-slate-200 bg-white dark:border-slate-700 dark:bg-slate-800">
                 <button
                   type="button"
                   onClick={() =>
@@ -174,12 +176,12 @@ export function SolutionsListPage() {
                   }
                   className="flex w-full items-center justify-between px-4 py-3 text-left"
                 >
-                  <span className="text-lg font-semibold text-slate-900">{section.category.name}</span>
-                  <span className="text-sm text-slate-600">
+                  <span className="text-lg font-semibold text-slate-900 dark:text-slate-100">{section.category.name}</span>
+                  <span className="text-sm text-slate-600 dark:text-slate-300">
                     {section.solutions.length} solution{section.solutions.length === 1 ? '' : 's'}
                   </span>
                 </button>
-                <div className={isOpen ? 'block border-t border-slate-200 p-4' : 'hidden'}>
+                <div className={isOpen ? 'block border-t border-slate-200 p-4 dark:border-slate-700' : 'hidden'}>
                   <div className="grid gap-4">
                     {section.solutions.map((solution) => (
                       <SolutionCard
@@ -210,18 +212,21 @@ function SolutionCard({
   categoriesById: Map<string, Category>
 }) {
   return (
-    <article className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+    <article className="rounded-lg border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-900">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <Link to={`/solutions/${solution.id}`} className="text-lg font-semibold text-slate-900 hover:text-slate-700">
+          <Link
+            to={`/solutions/${solution.id}`}
+            className="text-lg font-semibold text-slate-900 hover:text-slate-700 dark:text-slate-100 dark:hover:text-slate-300"
+          >
             {solution.title}
           </Link>
-          <p className="mt-1 text-sm text-slate-600">Author: {solution.authorEmail}</p>
+          <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">Author: {solution.authorEmail}</p>
         </div>
         {currentUserId === solution.authorId ? (
           <Link
             to={`/solutions/${solution.id}/edit`}
-            className="rounded-md border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100"
+            className="rounded-md border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-700"
           >
             Edit
           </Link>
@@ -232,15 +237,18 @@ function SolutionCard({
         {solution.categoryIds.map((categoryId) => {
           const category = categoriesById.get(categoryId)
           return (
-            <span key={categoryId} className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700">
+            <span
+              key={categoryId}
+              className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700 dark:bg-slate-700 dark:text-slate-200"
+            >
               {category?.name ?? 'Unknown'}
             </span>
           )
         })}
-        {solution.categoryIds.length === 0 ? <span className="text-sm text-slate-500">No categories</span> : null}
+        {solution.categoryIds.length === 0 ? <span className="text-sm text-slate-500 dark:text-slate-400">No categories</span> : null}
       </div>
 
-      <div className="mt-4 grid gap-2 text-sm text-slate-600 sm:grid-cols-2">
+      <div className="mt-4 grid gap-2 text-sm text-slate-600 dark:text-slate-300 sm:grid-cols-2">
         <p>Created: {formatDateTime(solution.createdAt)}</p>
         <p>Updated: {formatDateTime(solution.updatedAt)}</p>
       </div>

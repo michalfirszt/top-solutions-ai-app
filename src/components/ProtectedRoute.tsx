@@ -18,7 +18,7 @@ export function ProtectedRoute() {
   }
 
   if (isLoading) {
-    return <p className="p-6 text-center text-slate-600">Loading user...</p>
+    return <p className="p-6 text-center text-slate-600 dark:text-slate-300">Loading user...</p>
   }
 
   if (!currentUser) {

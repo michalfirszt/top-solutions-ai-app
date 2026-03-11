@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   font-family: 'Inter', 'Segoe UI', sans-serif;
@@ -22,6 +23,8 @@ body,
 
 body {
   margin: 0;
+  background-color: #0f172a;
+  color: #e2e8f0;
 }
 
 .markdown-body h1,
@@ -42,6 +45,28 @@ body {
 .markdown-body pre {
   margin: 0 0 0.75rem;
   color: #334155;
+}
+
+.dark .markdown-body h1,
+.dark .markdown-body h2,
+.dark .markdown-body h3,
+.dark .markdown-body h4,
+.dark .markdown-body h5,
+.dark .markdown-body h6 {
+  color: #f8fafc;
+}
+
+.dark .markdown-body p,
+.dark .markdown-body ul,
+.dark .markdown-body ol,
+.dark .markdown-body blockquote,
+.dark .markdown-body pre {
+  color: #cbd5e1;
+}
+
+.dark .markdown-body code {
+  background: #334155;
+  color: #f8fafc;
 }
 
 .markdown-body ul,
