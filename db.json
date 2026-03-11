@@ -1,0 +1,49 @@
+{
+  "users": [],
+  "categories": [
+    {
+      "id": "cat-backend",
+      "name": "Back-end",
+      "slug": "back-end",
+      "createdAt": "2026-03-11T00:00:00.000Z",
+      "updatedAt": "2026-03-11T00:00:00.000Z"
+    },
+    {
+      "id": "cat-mobile",
+      "name": "Mobile",
+      "slug": "mobile",
+      "createdAt": "2026-03-11T00:00:00.000Z",
+      "updatedAt": "2026-03-11T00:00:00.000Z"
+    },
+    {
+      "id": "cat-payments",
+      "name": "Payments",
+      "slug": "payments",
+      "createdAt": "2026-03-11T00:00:00.000Z",
+      "updatedAt": "2026-03-11T00:00:00.000Z"
+    },
+    {
+      "id": "cat-frontend",
+      "name": "Front-end",
+      "slug": "front-end",
+      "createdAt": "2026-03-11T00:00:00.000Z",
+      "updatedAt": "2026-03-11T00:00:00.000Z"
+    },
+    {
+      "id": "cat-devops",
+      "name": "DevOps",
+      "slug": "devops",
+      "createdAt": "2026-03-11T00:00:00.000Z",
+      "updatedAt": "2026-03-11T00:00:00.000Z"
+    },
+    {
+      "id": "cat-design",
+      "name": "Design",
+      "slug": "design",
+      "createdAt": "2026-03-11T00:00:00.000Z",
+      "updatedAt": "2026-03-11T00:00:00.000Z"
+    }
+  ],
+  "solutions": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}
