@@ -1,5 +1,24 @@
 {
-  "users": [],
+  "users": [
+    {
+      "id": "u-john",
+      "email": "john@topsolutions.dev",
+      "createdAt": "2026-03-11T14:25:48.584Z",
+      "updatedAt": "2026-03-11T14:25:48.584Z"
+    },
+    {
+      "id": "u-alex",
+      "email": "alex@topsolutions.dev",
+      "createdAt": "2026-03-10T09:15:00.000Z",
+      "updatedAt": "2026-03-10T09:15:00.000Z"
+    },
+    {
+      "id": "u-nina",
+      "email": "nina@topsolutions.dev",
+      "createdAt": "2026-03-10T10:20:00.000Z",
+      "updatedAt": "2026-03-10T10:20:00.000Z"
+    }
+  ],
   "categories": [
     {
       "id": "cat-backend",
@@ -42,8 +61,129 @@
       "slug": "design",
       "createdAt": "2026-03-11T00:00:00.000Z",
       "updatedAt": "2026-03-11T00:00:00.000Z"
+    },
+    {
+      "id": "cat-calendar",
+      "name": "Calendar",
+      "slug": "calendar",
+      "createdAt": "2026-03-11T15:20:00.000Z",
+      "updatedAt": "2026-03-11T15:20:00.000Z"
+    },
+    {
+      "id": "cat-authentication",
+      "name": "Authentication",
+      "slug": "authentication",
+      "createdAt": "2026-03-11T15:20:00.000Z",
+      "updatedAt": "2026-03-11T15:20:00.000Z"
+    },
+    {
+      "id": "cat-access-control",
+      "name": "Access Control",
+      "slug": "access-control",
+      "createdAt": "2026-03-11T15:20:00.000Z",
+      "updatedAt": "2026-03-11T15:20:00.000Z"
+    },
+    {
+      "id": "cat-notifications",
+      "name": "Notifications",
+      "slug": "notifications",
+      "createdAt": "2026-03-11T15:20:00.000Z",
+      "updatedAt": "2026-03-11T15:20:00.000Z"
+    },
+    {
+      "id": "cat-analytics",
+      "name": "Analytics",
+      "slug": "analytics",
+      "createdAt": "2026-03-11T15:20:00.000Z",
+      "updatedAt": "2026-03-11T15:20:00.000Z"
     }
   ],
-  "solutions": [],
+  "solutions": [
+    {
+      "id": "sol-auth-jwt",
+      "title": "JWT Authentication Service",
+      "descriptionMarkdown": "A reusable authentication service with:\n\n- email/password login\n- refresh token rotation\n- logout endpoint\n\nSupports frontend SPA and mobile apps.",
+      "categoryIds": ["cat-backend", "cat-authentication", "cat-access-control"],
+      "estimates": {
+        "frontend": 10,
+        "backend": 24,
+        "mobile": 8,
+        "devops": 6,
+        "design": 2
+      },
+      "authorId": "u-alex",
+      "authorEmail": "alex@topsolutions.dev",
+      "createdAt": "2026-03-09T11:00:00.000Z",
+      "updatedAt": "2026-03-11T09:10:00.000Z"
+    },
+    {
+      "id": "sol-rbac-admin",
+      "title": "RBAC Admin Panel",
+      "descriptionMarkdown": "Role-based access control panel for managing permissions.\n\n### Includes\n\n- Roles CRUD\n- Permission matrix\n- User role assignment",
+      "categoryIds": ["cat-frontend", "cat-backend", "cat-access-control"],
+      "estimates": {
+        "frontend": 18,
+        "backend": 20,
+        "mobile": 0,
+        "devops": 4,
+        "design": 6
+      },
+      "authorId": "u-nina",
+      "authorEmail": "nina@topsolutions.dev",
+      "createdAt": "2026-03-08T13:30:00.000Z",
+      "updatedAt": "2026-03-10T16:45:00.000Z"
+    },
+    {
+      "id": "sol-calendar-booking",
+      "title": "Calendar Booking Integration",
+      "descriptionMarkdown": "Two-way calendar sync for booking meetings with conflict detection.\n\nWorks with recurring events and timezone conversions.",
+      "categoryIds": ["cat-calendar", "cat-backend", "cat-frontend"],
+      "estimates": {
+        "frontend": 14,
+        "backend": 22,
+        "mobile": 6,
+        "devops": 5,
+        "design": 4
+      },
+      "authorId": "u-john",
+      "authorEmail": "john@topsolutions.dev",
+      "createdAt": "2026-03-07T08:40:00.000Z",
+      "updatedAt": "2026-03-11T12:30:00.000Z"
+    },
+    {
+      "id": "sol-payment-retries",
+      "title": "Payment Retry Orchestrator",
+      "descriptionMarkdown": "Smart retry workflow for failed payments with status dashboard and webhook handling.",
+      "categoryIds": ["cat-payments", "cat-backend", "cat-analytics"],
+      "estimates": {
+        "frontend": 12,
+        "backend": 28,
+        "mobile": 0,
+        "devops": 8,
+        "design": 3
+      },
+      "authorId": "u-alex",
+      "authorEmail": "alex@topsolutions.dev",
+      "createdAt": "2026-03-06T10:05:00.000Z",
+      "updatedAt": "2026-03-10T14:15:00.000Z"
+    },
+    {
+      "id": "sol-mobile-push-auth",
+      "title": "Mobile Push Auth Flow",
+      "descriptionMarkdown": "Mobile-first login flow using push confirmation and fallback OTP.\n\nImproves sign-in conversion for returning users.",
+      "categoryIds": ["cat-mobile", "cat-authentication", "cat-notifications"],
+      "estimates": {
+        "frontend": 6,
+        "backend": 16,
+        "mobile": 26,
+        "devops": 7,
+        "design": 5
+      },
+      "authorId": "u-nina",
+      "authorEmail": "nina@topsolutions.dev",
+      "createdAt": "2026-03-05T15:00:00.000Z",
+      "updatedAt": "2026-03-11T07:50:00.000Z"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }
