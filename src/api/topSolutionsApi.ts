@@ -34,7 +34,8 @@ export async function ensureUserByEmail(email: string): Promise<User> {
 }
 
 export async function getCategories(): Promise<Category[]> {
-  return requestJson<Category[]>('/categories?_sort=name&_order=asc')
+  const categories = await requestJson<Category[]>('/categories')
+  return [...categories].sort((left, right) => left.name.localeCompare(right.name))
 }
 
 export async function createCategory(name: string): Promise<Category> {
@@ -62,7 +63,11 @@ export async function createCategory(name: string): Promise<Category> {
 }
 
 export async function getSolutions(): Promise<Solution[]> {
-  return requestJson<Solution[]>('/solutions?_sort=updatedAt&_order=desc')
+  const solutions = await requestJson<Solution[]>('/solutions')
+  return [...solutions].sort(
+    (left, right) =>
+      new Date(right.updatedAt).getTime() - new Date(left.updatedAt).getTime(),
+  )
 }
 
 export async function getSolutionById(id: string): Promise<Solution> {
