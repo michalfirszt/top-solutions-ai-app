@@ -2,6 +2,18 @@
 
 Top Solutions is a Vite + React + TypeScript web app for collecting and estimating technological solutions.
 
+## Purpose
+
+Top Solutions helps teams build a shared internal catalog of implementation-ready ideas and technical patterns.
+
+The application is designed to:
+- Document solutions in one place using clear titles and Markdown descriptions.
+- Organize solutions by categories (for example Back-end, Mobile, Payments, Calendar, Authentication, Access Control).
+- Estimate delivery effort across disciplines (Front-end, Back-end, Mobile, DevOps, Design).
+- Keep ownership and history visible with author, creation date, and last update date.
+
+This makes planning, discovery, and reuse of proven approaches faster across product and engineering teams.
+
 ## Stack
 
 - Vite
@@ -13,28 +25,62 @@ Top Solutions is a Vite + React + TypeScript web app for collecting and estimati
 - Tailwind CSS
 - json-server
 
-## Getting Started
+## Prerequisites
 
-Install dependencies:
+- **Node.js** (v18 or newer recommended)
+- **npm** (v9 or newer)
 
-```bash
-npm install
-```
+## Setup
 
-Run frontend and backend together:
+1. **Clone the repository** (if you haven’t already):
+
+   ```bash
+   git clone <repository-url>
+   cd top-solutions-ai-app
+   ```
+
+2. **Install dependencies**:
+
+   ```bash
+   npm install
+   ```
+
+3. No environment variables or extra configuration are required. The app uses the default API base URL `http://localhost:3001`.
+
+## How to start the application
+
+**Option A – Frontend and API together (recommended):**
 
 ```bash
 npm run dev:full
 ```
 
-Or run separately:
+This starts the Vite dev server and the json-server API with one command.
+
+**Option B – Run frontend and API separately:**
+
+Terminal 1 – API (json-server):
 
 ```bash
-npm run dev
 npm run api
 ```
 
-Frontend runs on `http://localhost:5173` and API runs on `http://localhost:3001`.
+Terminal 2 – Frontend (Vite):
+
+```bash
+npm run dev
+```
+
+- **Frontend:** [http://localhost:5173](http://localhost:5173)
+- **API:** [http://localhost:3001](http://localhost:3001)
+
+Open the frontend URL in your browser to use the app.
+
+## Other scripts
+
+- `npm run build` – TypeScript check and production build
+- `npm run preview` – Serve the production build locally
+- `npm run lint` – Run ESLint
 
 ## Features
 
@@ -46,3 +92,4 @@ Frontend runs on `http://localhost:5173` and API runs on `http://localhost:3001`
 - Multi-category assignment with predefined and custom categories.
 - Effort estimates for Front-end, Back-end, Mobile, DevOps, and Design (default `0h`).
 - Creation and last update timestamps.
+- Light/dark theme with persistence.
